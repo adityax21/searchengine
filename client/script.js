@@ -5,7 +5,7 @@ document.getElementById("findButton").addEventListener("click", async () => {
     resultList.innerHTML = ""; // Clear previous results
   
     try {
-      const response = await fetch("http://localhost:3000/get_company_urls", {
+      const response = await fetch("https://backend-z04z.onrender.com/get_company_urls", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
