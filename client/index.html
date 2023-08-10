@@ -3,14 +3,85 @@
 <head>
     <title>Company URL Finder</title>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            max-width: 500px;
+            width: 100%;
+        }
+
+        h1 {
+            color: #007bff;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: none;
+            font-size: 14px;
+        }
+
+        button {
+            padding: 12px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 14px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
 </head>
 <body>
-    <h1>Company URL Finder</h1>
-    <label for="companyNames">Enter Company Names (one per line):</label>
-    <textarea id="companyNames" rows="5" cols="50" placeholder="Enter company names"></textarea> <!-- Adjusted cols value -->
-    <button id="findButton">Find URLs</button>
-    <ul id="resultList"></ul>
-    
+    <div class="container">
+        <h1>Company URL Finder</h1>
+        <label for="companyNames">Enter Company Names (one per line):</label>
+        <textarea id="companyNames" rows="5" placeholder="Enter company names"></textarea>
+        <button id="findButton">Find URLs</button>
+        <ul id="resultList"></ul>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
