@@ -1,8 +1,9 @@
 document.getElementById('findButton').addEventListener('click', async () => {
-    const companyNames = document.getElementById('companyNames').value.split(',');
+    const companyNamesInput = document.getElementById('companyNames');
+    const companyNames = companyNamesInput.value.split('\n');
     const resultList = document.getElementById('resultList');
     resultList.innerHTML = ''; // Clear previous results
-    
+
     try {
         for (const companyName of companyNames) {
             const response = await fetch('https://search-backend-hz3t.onrender.com/get_company_url', {
