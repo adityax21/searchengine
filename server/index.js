@@ -1,3 +1,17 @@
+const express = require('express');
+const bodyParser = require('body-parser');
+const axios = require('axios');
+const cors = require('cors'); // Require the cors module
+
+const app = express();
+const port = process.env.PORT || 3000;
+
+app.use(cors());
+app.use(bodyParser.json());
+
+const API_KEY = ' AIzaSyAAxniqeCkKfL5td2lEMikK7XdNVVKsUoo '; // Replace with your Google Custom Search API key
+const SEARCH_ENGINE_ID = '26c0ba5f1031845db'; // Replace with your Search Engine ID
+
 app.post('/get_company_urls', async (req, res) => {
     const companyNames = req.body.company_names; // Expect an array of company names
 
@@ -24,3 +38,4 @@ app.post('/get_company_urls', async (req, res) => {
         res.status(500).json({ error: 'An error occurred' });
     }
 });
+

@@ -1,23 +1,31 @@
 document.getElementById('findButton').addEventListener('click', async () => {
-  const companyName = document.getElementById('companyName').value;
+    const companyNames = document.getElementById('companyNames').value.split(',');
+    const resultList = document.getElementById('resultList');
+    resultList.innerHTML = ''; // Clear previous results
+    
+    try {
+        for (const companyName of companyNames) {
+            const response = await fetch('https://search-backend-hz3t.onrender.com/get_company_url', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ company_name: companyName.trim() })
+            });
 
-  try {
-      const response = await fetch('https://search-backend-hz3t.onrender.com/get_company_url', {
-          method: 'POST',
-          headers: {
-              'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({ company_name: companyName })
-      });
+            const data = await response.json();
 
-      const data = await response.json();
-
-      if (response.ok) {
-          document.getElementById('result').textContent = `URL: ${data.url}`;
-      } else {
-          document.getElementById('result').textContent = `Error: ${data.error}`;
-      }
-  } catch (error) {
-      console.error('Error:', error);
-  }
+            if (response.ok) {
+                const listItem = document.createElement('li');
+                listItem.textContent = `${companyName}: ${data.url}`;
+                resultList.appendChild(listItem);
+            } else {
+                const listItem = document.createElement('li');
+                listItem.textContent = `${companyName}: Error - ${data.error}`;
+                resultList.appendChild(listItem);
+            }
+        }
+    } catch (error) {
+        console.error('Error:', error);
+    }
 });
