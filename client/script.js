@@ -2,7 +2,7 @@ document.getElementById('findButton').addEventListener('click', async () => {
   const companyName = document.getElementById('companyName').value;
 
   try {
-      const response = await fetch('https://search-backend-hz3t.onrender.com//get_company_url', {
+      const response = await fetch('https://search-backend-hz3t.onrender.com/get_company_url', {
           method: 'POST',
           headers: {
               'Content-Type': 'application/json'
