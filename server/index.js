@@ -36,6 +36,11 @@ app.post('/get_company_urls', async (req, res) => {
     } catch (error) {
         console.error('Error:', error);
         res.status(500).json({ error: 'An error occurred' });
-    }
+    }    
+    });
+
+    app.listen(port, () => {
+        console.log(`Server started on port ${port}`);
+    
 });
 
